@@ -111,6 +111,7 @@ export default {
       try {
         const response = await fetch('http://localhost:3000/auth/register', {
           method: 'POST',
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -125,7 +126,9 @@ export default {
 
         if (response.ok) {
           console.log('Utilisateur créé avec succès:', data);
-          this.$router.push('/form-kit-ui');
+          localStorage.setItem('token', data.token);
+          console.log('Token stocké :', data.token);
+          this.$router.push('/create-kit-ui');
         } else {
           console.error('Erreur lors de la création de l\'utilisateur:', data.message);
           alert(data.message || 'Une erreur est survenue');

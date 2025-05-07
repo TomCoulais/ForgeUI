@@ -3,9 +3,10 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-  </header>
   <UApp>
-    <RouterView />
+    <header class="flex flex-row items-start">
+
+      <RouterView class="flex-grow"/>
+    </header>
   </UApp>
 </template>

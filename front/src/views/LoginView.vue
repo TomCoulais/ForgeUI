@@ -69,49 +69,53 @@
     </div>
   </template>
   
-  <script setup>
-  import { ref } from 'vue';
-  
-  const show = ref(false);
-  const form = ref({
-    email: '',
-    password: ''
-  });
-  
-  const togglePasswordVisibility = () => {
-    show.value = !show.value;
-  };
-  
-  const handleSubmit = async () => {
-    if (form.value.password !== form.value.confirmPassword) {
-      alert('Les mots de passe ne correspondent pas.');
-      return;
-    }
-  
-    try {
-      const response = await fetch('http://localhost:3000/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+  <script>
+  export default {
+    data() {
+      return {
+        show: false,
+        form: {
+          email: 'izukend@gmail.com',
+          password: ''
         },
-        body: JSON.stringify({
-          email: form.value.email,
-          password: form.value.password,
-        }),
-      });
+        shouldRedirect: true // Flag optionnel pour la redirection
+      };
+    },
+    methods: {
+      togglePasswordVisibility() {
+        this.show = !this.show;
+      },
+      async handleSubmit() {
+        try {
+          const response = await fetch('http://localhost:3000/auth/login', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: this.form.email,
+              password: this.form.password,
+            }),
+          });
   
-      const data = await response.json();
+          const data = await response.json();
   
-      if (response.ok) {
-        console.log('Utilisateur connecté avec succès:', data);
-        router.push('/form-kit-ui');
-      } else {
-        console.error('Erreur lors de la création de l\'utilisateur:', data.message);
-        alert(data.message || 'Une erreur est survenue');
+          if (response.ok) {
+            console.log('Utilisateur connecté avec succès:', data);
+            localStorage.setItem('token', data.token);
+            console.log('Token stocké :', data.token);
+            this.$router.push('/create-kit-ui'); 
+      
+          } else {
+            console.error('Erreur lors de la connexion de l\'utilisateur:', data.message);
+            alert(data.message || 'Une erreur est survenue');
+          }
+        } catch (error) {
+          console.error('Erreur de connexion:', error);
+          alert('Erreur lors de la connexion');
+        }
       }
-    } catch (error) {
-      console.error('Erreur de connexion:', error);
-      alert('Erreur lors de l\'enregistrement');
     }
   };
   </script>

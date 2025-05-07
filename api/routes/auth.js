@@ -8,7 +8,6 @@
 
 const express = require('express');
 const router = express.Router();
-
 // Importation du contrôleur des utilisateurs
 const userController = require('../controllers/userController');
 
@@ -23,5 +22,6 @@ router.post('/register', userController.createUser);
  * @description Route pour la connexion d'un utilisateur. Appelle la méthode loginUser du contrôleur.
  */
 router.post('/login', userController.loginUser);
+
 
 module.exports = router;

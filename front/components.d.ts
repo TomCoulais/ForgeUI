@@ -9,6 +9,9 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ColorPalette: typeof import('./src/components/ColorPalette.vue')['default']
+    ContainerPreview: typeof import('./src/components/ContainerPreview.vue')['default']
+    GridPreview: typeof import('./src/components/GridPreview.vue')['default']
+    PxInput: typeof import('./src/components/PxInput.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     UApp: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/App.vue')['default']
