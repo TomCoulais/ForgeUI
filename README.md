@@ -30,10 +30,10 @@
 
 ## 📚 Table of Contents
 
-- [Overview](#overview)
+- [Overview](#-overview)
 - [Getting Started](#-getting-started)
-  - [Installation](#installation)
-  - [Testing](#testing)
+  - [Installation](-#installation)
+  - [Testing](#-testing)
 - [License](#license)
 
 ---
