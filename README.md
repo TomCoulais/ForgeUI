@@ -32,7 +32,7 @@
 
 - [Overview](#-overview)
 - [Getting Started](#-getting-started)
-  - [Installation](-#installation)
+  - [Installation](#-installation)
   - [Testing](#-testing)
 - [License](#license)
 
