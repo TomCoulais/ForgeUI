@@ -31,12 +31,9 @@
 ## 📚 Table of Contents
 
 - [Overview](#overview)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
+- [Getting Started](#-getting-started)
   - [Installation](#installation)
-  - [Usage](#usage)
   - [Testing](#testing)
-- [Built With](#built-with)
 - [License](#license)
 
 ---
@@ -48,9 +45,6 @@ ForgeUI is a powerful developer tool designed to streamline the creation and man
 ---
 
 ## 🚀 Getting Started
-
-### 🛠️ Prerequisites
-
 Make sure you have the following installed:
 
 - Node.js >= 18
@@ -63,4 +57,22 @@ Make sure you have the following installed:
 git clone https://github.com/TomCoulais/ForgeUI.git
 cd forgeui
 npm install
+```
+
+### 🧪 Testing
+
+To run the application locally, you need to start both the **frontend** and the **backend** servers.
+
+#### Start the Frontend
+
+```bash
+cd front
+npm run dev
+```
+#### Start the Backend
+
+Before starting the backend, you need to create the .env file
+```bash
+cd back
+npm run dev
 ```
