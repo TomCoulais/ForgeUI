@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
-import CSSGeneratedView from '../views/CSSGeneratedView.vue'
+import GenerateCSSKitView from '../views/GenerateCSSKitView.vue'
 import UIKitsDashboard from '../views/UIKitsDashboard.vue'
+import EditCSSKitView from '../views/EditCSSKitView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -19,12 +20,17 @@ const router = createRouter({
     {
       path: '/create-kit-ui',
       name: 'createKit',
-      component: CSSGeneratedView
+      component: GenerateCSSKitView
     },
     {
       path: '/my-kits-ui',
       name: 'listKit',
       component: UIKitsDashboard
+    },
+    {
+      path: '/edit-kit-ui',
+      name: 'editKit',
+      component: EditCSSKitView
     }
   ],
 })

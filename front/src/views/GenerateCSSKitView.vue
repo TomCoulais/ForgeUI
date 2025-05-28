@@ -1,5 +1,5 @@
 <template>
-  <UProgress class="absolute " v-model="valueProgress" />
+  <UProgress color="fuchsia" class="absolute " v-model="valueProgress" />
   <VerticalNav />
   <div class="flex justify-center items-center min-h-screen w-full">
     <div class="w-full max-w-xl backdrop-blur-xl bg-slate-600/40 rounded-2xl shadow-lg border border-white/20 p-8">
@@ -109,29 +109,34 @@
                 <div class="flex items-center gap-3">
                   <input 
                     v-model="colors.dark" 
-                    type="color"
-                    class="w-12 h-10 rounded cursor-pointer border-2 border-white/50" />
-                  <span class="text-white">{{ colors.dark }}</span>
+                    type="color" 
+                    class="w-full h-10 rounded cursor-pointer border-2 border-white/50" 
+                  />
+                  <span class="text-white whitespace-nowrap">{{ colors.dark }}</span>
                 </div>
               </div>
+              
               <div class="space-y-2">
                 <label class="block text-sm font-medium text-white">Couleur claire</label>
                 <div class="flex items-center gap-3">
                   <input 
                     v-model="colors.light" 
-                    type="color"
-                    class="w-12 h-10 rounded cursor-pointer border-2 border-white/50" />
-                  <span class="text-white">{{ colors.light }}</span>
+                    type="color" 
+                    class="w-full h-10 rounded cursor-pointer border-2 border-white/50" 
+                  />
+                  <span class="text-white whitespace-nowrap">{{ colors.light }}</span>
                 </div>
               </div>
+              
               <div class="space-y-2">
                 <label class="block text-sm font-medium text-white">Couleur accent</label>
                 <div class="flex items-center gap-3">
                   <input 
                     v-model="colors.accent" 
-                    type="color"
-                    class="w-12 h-10 rounded cursor-pointer border-2 border-white/50" />
-                  <span class="text-white">{{ colors.accent }}</span>
+                    type="color" 
+                    class="w-full h-10 rounded cursor-pointer border-2 border-white/50" 
+                  />
+                  <span class="text-white whitespace-nowrap">{{ colors.accent }}</span>
                 </div>
               </div>
             </div>
@@ -139,8 +144,16 @@
             <div class="flex-1 flex justify-center items-center">
             </div>
           </div>
+          
           <div class="flex justify-end mt-6">
-            <UButton trailing-icon="i-lucide-arrow-right" size="md" @click="nextStep() ; increment()" class="bg-fuchsia-500 hover:bg-fuchsia-700 cursor-pointer text-white">Suivant</UButton>
+            <UButton 
+              trailing-icon="i-lucide-arrow-right" 
+              size="md" 
+              @click="nextStep(); increment()" 
+              class="bg-fuchsia-500 hover:bg-fuchsia-700 cursor-pointer text-white"
+            >
+              Suivant
+            </UButton>
           </div>
         </div>
 
@@ -200,18 +213,26 @@
           <h2 class="text-xl font-semibold border-b pb-2">Les composants</h2>
           <h3 class="text-lg text-center font-semibold pb-2">Les boutons</h3>
           <input 
-            v-model="components.buttons[0].margin" 
+            v-model="components.buttons[0].padding"
+            type="number" 
             placeholder="Marges internes (en px)" required 
             class="w-full px-4 py-3 bg-white/20 rounded-lg border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" />
           <input 
-            v-model="components.buttons[0].fontSize" 
+            v-model="components.buttons[0].fontSize"
+            type="number" 
             placeholder="Taille du texte (en px)" required 
             class="w-full px-4 py-3 bg-white/20 rounded-lg border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" />
           <input 
             v-model="components.buttons[0].border.radius" 
+            type="number"
             placeholder="Border radius (en px)" required 
             class="w-full px-4 py-3 bg-white/20 rounded-lg border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" />
-          <div class="flex justify-end mt-6">
+          <div class="mt-6 flex flex-col items-center">
+            <h3 class="text-lg font-semibold text-center pb-2">Aperçu du bouton</h3>
+            <ButtonPreview class="item" :padding="components.buttons[0].padding" :fontSize="components.buttons[0].fontSize" :border="components.buttons[0].border" />
+          </div>
+           
+            <div class="flex justify-end mt-6">
             <UButton trailing-icon="i-lucide-arrow-right" size="md" @click="nextStep() ; increment()" class="bg-fuchsia-500 hover:bg-fuchsia-700 cursor-pointer text-white">Suivant</UButton>
           </div>
         </div>
@@ -232,9 +253,27 @@
         </div>
 
         <div v-show="currentStep === 9">
-          <div class="flex flex-col items-center justify-center mt-8">
-            <UButton @click="submitKit" to="/my-kits-ui" class="mb-4 bg-fuchsia-500 hover:bg-fuchsia-700 cursor-pointer text-white">Télécharger</UButton>
-            <UButton to="/create-kit-ui" class="bg-fuchsia-500 hover:bg-fuchsia-700 cursor-pointer text-white">Créer un nouveau kit</UButton>
+          <div class="flex flex-col items-center justify-center mt-8 space-y-4">
+            <UButton
+                    @click="submitKit"
+                    to="/my-kits-ui"
+                    class="w-64 flex items-center justify-center gap-2 py-3 px-6 text-lg font-semibold text-white bg-fuchsia-500 hover:bg-fuchsia-600 shadow-lg rounded-xl transition duration-300 ease-in-out"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M7 10l5 5 5-5M12 15V3" />
+                    </svg>
+                    Télécharger
+                </UButton>
+
+                <UButton
+                    to="/create-kit-ui"
+                    class="w-64 flex items-center justify-center gap-2 py-3 px-6 text-lg font-semibold text-white bg-fuchsia-500 hover:bg-fuchsia-600 shadow-lg rounded-xl transition duration-300 ease-in-out"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Créer un nouveau kit
+                </UButton>
           </div>
         </div>
       </form>
@@ -246,6 +285,7 @@
 import { jwtDecode } from 'jwt-decode';
 import ContainerPreview from '../components/ContainerPreview.vue'
 import GridPreview from '../components/GridPreview.vue'
+import ButtonPreview from '../components/ButtonPreview.vue'
 export default {
   data() {
     return {
@@ -274,16 +314,18 @@ export default {
           padding: '',
         },
         grid: {
-          breakpoints: {
+          breakpoints: [
+          {
             columns: '',
             gap: ''
           }
+        ]
         }
       },
       components: {
         buttons: [
           {
-            margin: '',
+            padding: '',
             fontSize: '',
             border: { radius: '' }
           }

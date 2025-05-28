@@ -13,6 +13,7 @@ const kitController = require('../controllers/kitController');
 
 
 router.post('/generated', kitController.generateCssFile);
+router.post('/updated/:userId/:fileName', kitController.updateCssFile);
 
 router.get('/list/:userId', kitController.getUserCssFiles);
 
