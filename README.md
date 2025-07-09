@@ -46,6 +46,7 @@ npm run dev
 ### Frontend
 - **Vue.js** - Gramework SPR
 - **Tailwind CSS** - Styling utilitaire
+- **Vite**
 
 ### Backend
 - **Node.js** - Runtime JavaScript
