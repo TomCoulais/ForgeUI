@@ -1,4 +1,4 @@
-# 🔥 Forge UI
+# Forge UI
 
 Kitu, une agence web spécialisée dans la construction de sites web. Avec le temps, Kitu s'est spécialisée dans la création de landing pages sur-mesure pour des clients au profil de freelance (influenceurs, formateurs…) à la manière de https://linktr.ee/ ou encore https://lnk.bio/fr/…
 
@@ -63,12 +63,7 @@ Les contributions sont les bienvenues ! Pour contribuer :
 4. Poussez vers la branche (`git push origin feature/amazing-feature`)
 5. Ouvrez une Pull Request
 
-## 📝 Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
----
 
 <div align="center">
-  <strong>Développé avec ❤️ par l'équipe Kitu</strong>
+  <strong>Développé avec ❤️ par l'équipe imaginaire Kitu</strong>
 </div>
