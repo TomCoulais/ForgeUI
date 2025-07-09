@@ -1,5 +1,5 @@
 <template>
-    <div class="grid-preview mt-4">
+    <div class="grid-preview mt-4 flex items-center justify-center">
       <div
         class="grid"
         :style="{
@@ -10,7 +10,7 @@
         <div
           v-for="i in columns"
           :key="i"
-          class="grid-item bg-gray-200 p-4 text-center"
+          class=" bg-fuchsia-50/20 border border-dashed p-4 text-center rounded-md"
         ></div>
       </div>
     </div>

@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
-import GenerateCSSKitView from '../views/GenerateCSSKitView.vue'
-import UIKitsDashboard from '../views/UIKitsDashboard.vue'
-import EditCSSKitView from '../views/EditCSSKitView.vue'
+import GenerateKitView from '../views/GenerateKitView.vue'
+import DashboardView from '../views/DashboardView.vue'
+import EditKitView from '../views/EditKitView.vue'
+import ProfileView from '../views/ProfileView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -20,19 +22,38 @@ const router = createRouter({
     {
       path: '/create-kit-ui',
       name: 'createKit',
-      component: GenerateCSSKitView
+      component: GenerateKitView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/my-kits-ui',
       name: 'listKit',
-      component: UIKitsDashboard
+      component: DashboardView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/edit-kit-ui',
       name: 'editKit',
-      component: EditCSSKitView
+      component: EditKitView,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: ProfileView,
+      meta: { requiresAuth: true }
     }
   ],
+})
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('token')
+
+  if (to.meta.requiresAuth && !token) {
+    next({ name: 'login' })
+  } else {
+    next()
+  }
 })
 
 export default router

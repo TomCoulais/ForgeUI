@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col h-screen w-64 bg-gray-900 text-white">
     <div class="flex items-center justify-center p-4 bg-gray-800 border-b border-gray-700">
+      <img src="../../public/logo.svg" alt="Logo" class="h-10 w-10">
       <span class="text-lg font-semibold">Intranet</span>
     </div>
 
@@ -21,7 +22,7 @@
 
     <div class="mt-auto flex items-center space-x-3 p-4 border-t border-gray-700" v-if="user">
       <div class="flex items-center space-x-2">
-        <div @click="toggleDropdown" class="w-10 h-10 rounded-full overflow-hidden cursor-pointer">
+        <div class="w-10 h-10 rounded-full overflow-hidden cursor-pointer">
           <img :src="user.avatar" alt="User Avatar" class="w-full h-full object-cover">
         </div>
         <div class="flex flex-col">

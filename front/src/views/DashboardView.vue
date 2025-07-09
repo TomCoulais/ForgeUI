@@ -51,11 +51,7 @@
             
             <p class="text-gray-200 text-sm mb-5">Kit de style personnalisé pour votre projet</p>
             
-            <div class="bg-gray-50 rounded-md p-3 mb-5 h-16 flex items-center justify-center overflow-hidden">
-              <div class="text-xs text-gray-500 overflow-hidden text-ellipsis">
-                <code>/* {{ extractFileName(file) }} */</code>
-              </div>
-            </div>
+
             
             <div class="flex flex-wrap gap-2 justify-between items-center pt-2 border-t border-gray-100">
               <div class="flex items-center space-x-3">

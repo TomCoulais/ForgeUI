@@ -1,8 +1,15 @@
 <template>
-  <div class="flex justify-center items-center min-h-screen bg-gradient-to-br p-6">
+  <div class="flex justify-center items-center min-h-screen bg-gradient-to-br p-2">
     <div class="w-full max-w-md backdrop-blur-xl bg-slate-600/40 rounded-2xl shadow-lg border border-white/20 p-8">
-      <h2 class="text-2xl font-bold text-center mb-6 text-white">Créer un compte</h2>
-
+      <!-- Logo et titre -->
+      <div class="text-center mb-8">
+        <div class="flex justify-center mb-4">
+          <img src="../../public/logo.svg" alt="Logo" class="h-24 w-24" />
+        </div>
+        <h1 class="text-3xl font-bold text-white mb-2">Forge UI</h1>
+        <p class="text-white/80 text-sm">Rejoignez-nous ! Créez votre compte pour commencer à forger des interfaces</p>
+        <h1 class="text-xl mt-3 font-bold">Créer un compte</h1>
+      </div>
       <form @submit.prevent="handleSubmit">
         <div class="mb-6">
           <label for="email" class="block text-sm font-medium text-white mb-2">Email</label>
