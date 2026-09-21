@@ -8,10 +8,10 @@ C'est ainsi qu'est né Forge UI.
 
 ## ✨ Fonctionnalités
 
-- 🎨 **Création de fichier CSS**
-- ⚡ **Génération en temps réel** des pages personnalisées
-- 🔧 **Personnalisation avancée** des couleurs, polices et layouts
-- 📊 **Prévisualisation en direct** de vos modifications
+- 🎨 Création de fichier CSS
+- ⚡ Génération en temps réel des pages personnalisées
+- 🔧 Personnalisation avancée des couleurs, polices et layouts
+- 📊 Prévisualisation en direct de vos modifications
 
 ## 🚀 Initialisation
 
@@ -21,7 +21,18 @@ C'est ainsi qu'est né Forge UI.
 git clone https://github.com/TomCoulais/ForgeUI
 ```
 
-Il faut penser à générer un fichier .env pour le back.
+### Configuration du fichier .env
+
+Avant de lancer le backend, il faut créer un fichier .env dans le dossier back/ contenant les informations suivantes :
+
+```env
+POSTGRES_DB=name_db
+POSTGRES_USER=name_user
+POSTGRES_PASSWORD=password
+DATABASE_URL="postgresql://app:test@127.0.0.1:52397/db"
+
+JWT_SECRET=votre_chaine_secrete_aleatoire
+```
 
 ### Lancement du projet
 
@@ -29,13 +40,13 @@ Il faut penser à générer un fichier .env pour le back.
 cd ForgeUI
 ```
 
-- **Lancer le front**
+- Lancer le front :
 ```bash
 cd front
 npm run dev
 ```
 
-- **Lancer le back**
+- Lancer le back :
 ```bash
 cd back
 npm run dev
@@ -44,26 +55,19 @@ npm run dev
 ## 🛠️ Technologies utilisées
 
 ### Frontend
-- **Vue.js** - Gramework SPR
-- **Tailwind CSS** - Styling utilitaire
-- **Vite**
+
+- Vue.js - Framework SPA
+- Tailwind CSS - Styling utilitaire
+- Vite
 
 ### Backend
-- **Node.js** - Runtime JavaScript
-- **Express.js** - Framework web
-- **PostgresSQL** - Base de données
-- **JWT** - Authentification sécurisée
 
-## 🤝 Contribution
+- Node.js - Runtime JavaScript
+- Express.js - Framework web
+- PostgreSQL - Base de données
+- JWT - Authentification sécurisée
 
-Les contributions sont les bienvenues ! Pour contribuer :
-
-1. Forkez le projet
-2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/amazing-feature`)
-3. Committez vos changements (`git commit -m 'Add amazing feature'`)
-4. Poussez vers la branche (`git push origin feature/amazing-feature`)
-5. Ouvrez une Pull Request
-
+---
 
 <div align="center">
   <strong>Développé avec ❤️ par l'équipe imaginaire Kitu</strong>
